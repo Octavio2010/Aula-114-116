@@ -2,7 +2,7 @@ noseX = ""
 noseY = ""
 
 function preload(){
-    
+    mascara = loadImage('mascara_flash.png')
 }
 function setup(){
     canva = createCanvas(650,490);
@@ -18,8 +18,7 @@ function modelLoaded(){
 
 function draw(){
     image(cam, 0, 0, 650, 490)
-    fill("blue") 
-    circle(noseX, noseY, 6)
+    image(mascara, noseX-100, noseY-150, 210, 200)
 }
 
 function gotPoses(results){
@@ -28,4 +27,8 @@ function gotPoses(results){
     noseX = results[0].pose.nose.x
     noseY = results[0].pose.nose.y
     }
+}
+
+function takeSnapshot(){
+    save("flash.png")
 }
